@@ -30,15 +30,15 @@ Seu objetivo é escrever um módulo em **Verilog** chamado `Semaphore`, que deve
 O semáforo segue o seguinte ciclo:  
 
 1. **Inicialização:** Ao ser resetado, o semáforo começa **fechado** (luz vermelha acesa).  
-2. **Vermelho (Fechado):** Dura **7 segundos**.  
-3. **Verde (Aberto):** Dura **5 segundos**.  
+2. **Vermelho (Fechado):** Dura **5 segundos**.  
+3. **Verde (Aberto):** Dura **7 segundos**.  
 4. **Amarelo (Transição para Vermelho):** Dura **0,5 segundo**.  
 5. **Volta ao estado fechado (Vermelho)** e o ciclo se repete.  
 
 ### **Botão de Pedestre**  
 Caso a entrada `pedestrian` seja acionada enquanto o semáforo está **verde**, ele deve **imediatamente** passar para **amarelo**, interrompendo o ciclo normal.  
 
-A máquina de estados do semáforo pode ser representada pelo diagrama abaixo:
+A máquina de estados do semáforo pode ser representada pelo diagrama abaixo:  
 
 > Se não conseguir ver o diagrama, baixe a extensão do vscode "Markdown Preview Mermaid Support"
 
@@ -46,11 +46,11 @@ A máquina de estados do semáforo pode ser representada pelo diagrama abaixo:
 stateDiagram-v2
     [*] --> Vermelho
 
-    Vermelho --> Verde: Após 7 segundos
+    Vermelho --> Verde: Após 5 segundos
     state aberto {
         Verde --> Amarelo: Botão de pedestre pressionado
 
-        Verde --> Amarelo: Após 5 segundos
+        Verde --> Amarelo: Após 7 segundos
 
         Amarelo --> Vermelho: Após 0.5 segundo
     }
@@ -95,3 +95,4 @@ Para submeter o projeto, basta fazer um *commit* no repositório do **GitHub Cla
 
 > **Dica:**  
 Os testes do GitHub estão embutidos nos arquivos do laboratório. Para entender melhor como funcionam, consulte o script de correção `run.sh` no repositório. **Não altere os arquivos de correção!**  
+
